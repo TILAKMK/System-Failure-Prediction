@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>System Failure Dashboard Portal</title>
+    <meta
+      name="description"
+      content="Vercel-hosted portal that opens your Streamlit System Failure Dashboard."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-1: #f5efe5;
+        --bg-2: #d7e6f7;
+        --text: #1a2333;
+        --accent: #0f766e;
+        --accent-2: #f97316;
+        --surface: rgba(255, 255, 255, 0.72);
+        --shadow: 0 16px 36px rgba(26, 35, 51, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Space Grotesk", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 15% 10%, rgba(249, 115, 22, 0.25), transparent 45%),
+          radial-gradient(circle at 85% 90%, rgba(15, 118, 110, 0.22), transparent 45%),
+          linear-gradient(130deg, var(--bg-1), var(--bg-2));
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .card {
+        width: min(820px, 100%);
+        border-radius: 24px;
+        background: var(--surface);
+        backdrop-filter: blur(8px);
+        box-shadow: var(--shadow);
+        padding: clamp(20px, 4vw, 40px);
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        animation: reveal 560ms ease-out;
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(1.75rem, 4vw, 2.9rem);
+        line-height: 1.06;
+      }
+
+      p {
+        margin: 0;
+        line-height: 1.6;
+        max-width: 66ch;
+      }
+
+      .actions {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      button,
+      a.button {
+        border: 0;
+        text-decoration: none;
+        cursor: pointer;
+        font: inherit;
+        padding: 12px 18px;
+        border-radius: 999px;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .primary {
+        color: #fff;
+        background: linear-gradient(120deg, var(--accent), #0ea5a0);
+        box-shadow: 0 8px 18px rgba(15, 118, 110, 0.28);
+      }
+
+      .secondary {
+        color: var(--text);
+        background: rgba(255, 255, 255, 0.86);
+      }
+
+      button:hover,
+      a.button:hover {
+        transform: translateY(-1px);
+      }
+
+      .status {
+        margin-top: 16px;
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .warn {
+        color: #9a3412;
+      }
+
+      .ok {
+        color: #065f46;
+      }
+
+      code {
+        background: rgba(26, 35, 51, 0.08);
+        border-radius: 6px;
+        padding: 2px 6px;
+      }
+
+      @keyframes reveal {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>System Failure Dashboard</h1>
+      <p>
+        This Vercel site is a portal for your Streamlit app. It does not modify or run your
+        training/data pipeline here. Keep your model app hosted on Streamlit Cloud and use this
+        page as the public entry point.
+      </p>
+
+      <div class="actions">
+        <button id="openStreamlit" class="primary" type="button">Open Dashboard</button>
+        <a
+          id="openNewTab"
+          class="button secondary"
+          target="_blank"
+          rel="noreferrer noopener"
+          href="#"
+          >Open in New Tab</a
+        >
+      </div>
+
+      <p id="status" class="status"></p>
+      <p class="status">
+        Config source: <code>vercel_app/streamlit.config.js</code>
+      </p>
+    </main>
+
+    <script src="/streamlit.config.js"></script>
+    <script>
+      (function initPortal() {
+        var url = window.STREAMLIT_APP_URL;
+        var status = document.getElementById("status");
+        var openButton = document.getElementById("openStreamlit");
+        var openNewTab = document.getElementById("openNewTab");
+
+        function isConfigured(value) {
+          return typeof value === "string" && value.indexOf("YOUR-STREAMLIT-APP-URL") === -1;
+        }
+
+        if (!isConfigured(url)) {
+          status.className = "status warn";
+          status.textContent =
+            "Set STREAMLIT_APP_URL in streamlit.config.js before deploying.";
+          openButton.disabled = true;
+          openButton.style.opacity = "0.5";
+          openButton.style.cursor = "not-allowed";
+          openNewTab.removeAttribute("href");
+          return;
+        }
+
+        status.className = "status ok";
+        status.textContent = "Configured. This portal points to your Streamlit deployment.";
+
+        openNewTab.href = url;
+        openButton.addEventListener("click", function () {
+          window.location.href = url;
+        });
+      })();
+    </script>
+  </body>
+</html>

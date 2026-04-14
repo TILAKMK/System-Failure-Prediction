@@ -1,0 +1,60 @@
+ERROR: Disk read failure on /dev/sda1 - I/O error detected
+ERROR: Disk write failure on /dev/sdb - sector corrupt
+ERROR: Disk I/O error on /dev/sda3 - read timeout exceeded
+ERROR: Disk failure imminent on /dev/sdc - SMART warning issued
+ERROR: Disk read error on /dev/sda - bad block at sector 204800
+ERROR: Disk write error on /dev/sdb2 - device not responding
+ERROR: Disk I/O error - multiple bad sectors found on /dev/sda2
+ERROR: Disk failure on /dev/sdd - device offline unexpectedly
+ERROR: Disk read failure - CRC error on /dev/sda sector 409600
+ERROR: CPU overheating detected - temperature at 98C on core 2
+ERROR: CPU high usage alert - sustained 97% for 5 minutes on core 0
+ERROR: CPU core 3 overheating - throttling applied at 101C
+ERROR: CPU high temperature warning - fan speed insufficient at 89C
+ERROR: CPU sustained high usage 95% - process runaway detected
+ERROR: Memory leak detected in process httpd PID 4821
+ERROR: Out of memory condition triggered - OOM killer invoked
+ERROR: Memory usage critical - 96% utilized swap space exhausted
+ERROR: Memory leak in process mysqld PID 3302 growing 50MB per hour
+ERROR: Network timeout on interface eth0 - no response from gateway
+ERROR: Network connection lost on eth1 - link down
+ERROR: Network packet loss above threshold - 28% loss on eth0
+ERROR: Network DNS timeout - unable to resolve host after 3 retries
+ERROR: Network connection lost - VPN tunnel dropped unexpectedly
+ERROR: Network timeout waiting for TCP response - connection reset
+ERROR: Network interface eth1 down - cable unplugged or link failure
+ERROR: Network packet timeout on eth0 - ARP request unanswered
+INFO: System boot completed successfully
+INFO: CPU usage at 12% - system running normally
+INFO: Memory usage at 34% - within normal range
+INFO: Scheduled task completed - log rotation done
+INFO: Network interface eth0 reconnected successfully
+INFO: Disk health check passed - no issues found
+INFO: CPU frequency scaling adjusted - power save mode active
+INFO: Memory usage stable at 41% - no anomalies
+INFO: Disk backup completed successfully - 4.2GB written
+INFO: Network bandwidth utilization normal - 14 Mbps
+INFO: CPU temperature normal - 52C across all cores
+INFO: Memory cache cleared - freed 512MB successfully
+INFO: CPU scheduler rebalanced - load distributed across 8 cores
+INFO: Network interface eth0 - packet delivery normal
+INFO: Disk usage at 61% - adequate free space available
+INFO: Disk defragmentation completed - performance improved
+INFO: Network firewall rules updated - 12 rules applied
+INFO: CPU usage dropped to 8% - idle state entered
+INFO: Memory self-test passed - no errors detected
+INFO: System health check complete - CPU and memory nominal
+INFO: Network throughput test passed - 940 Mbps achieved
+INFO: Disk read speed normal - 520 MB/s sequential read
+INFO: CPU power management initialized successfully
+INFO: Memory swap usage at 2% - system memory healthy
+INFO: All system services running normally - no alerts
+INFO: CPU load average 0.45 - well within acceptable limits
+INFO: Memory garbage collection completed - 1.1GB reclaimed
+INFO: Network stack restarted - all interfaces up
+INFO: Memory pressure normal - no swapping occurring
+INFO: Disk snapshot created successfully - 8.7GB archived
+INFO: Network latency normal - average 4ms to gateway
+INFO: CPU thermal management active - temperatures stable at 61C
+INFO: System uptime 5 hours - all services running
+INFO: Memory allocation successful - process started normally
